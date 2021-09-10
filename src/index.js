@@ -47,7 +47,7 @@ function onMessageHandler (channel, context, msg, self) {
   }
   
   //usage of bttv emotes will be only tracked if the flag is set for the user
-
+  //TODO
 
 }
 

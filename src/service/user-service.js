@@ -9,7 +9,6 @@ const addOrTrackUserIfNotExists = async function(userDto) {
 
     if(!user[0].IsTracked){
       user = await userRepository.trackUser(userDto.userId);
-      console.log(user);
       return user; 
     }
     
