@@ -1,4 +1,17 @@
 const tmi = require('tmi.js');
+const fs = require('fs');
+const commandHandler = require('./commandHandler/commandHandler');
+const contextHelper = require('./util/contextHelper');
+
+// Commandlist
+const commandCollection = {};
+const commandFiles = fs.readdirSync('./src/commandHandler/commands').filter(file => file.endsWith('.js'));
+
+for(const file of commandFiles) {
+  const command = require(`./commandHandler/commands/${file}`);
+  commandCollection[command.name] = command;
+}
+
 
 // Define configuration options
 const opts = {
@@ -22,27 +35,20 @@ client.on('connected', onConnectedHandler);
 client.connect();
 
 // Called every time a message comes in
-function onMessageHandler (target, context, msg, self) {
+function onMessageHandler (channel, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
+  // check if the message is a command
+  if(msg.startsWith(process.env['PREFIX'])) {
+    const args = msg.slice(process.env.PREFIX.length).trim().split(/ +/);
+    const command = args.shift().toLowerCase();
 
-  // Remove whitespace from chat message
-  const commandName = msg.trim();
-
-  // If the command is known, let's execute it
-  if (commandName === '!dice') {
-    const num = rollDice();
-    client.say(target, `You rolled a ${num}`);
-    console.log(`* Executed ${commandName} command`);
-    console.log(`${context['user-id']}`);
-  } else {
-    console.log(`* Unknown command ${commandName[0]}`);
+    commandHandler.handleCommand(client, channel, context, msg, command, commandCollection, args);
+    return;
   }
-}
+  
+  //usage of bttv emotes will be only tracked if the flag is set for the user
 
-// Function called when the "dice" command is issued
-function rollDice () {
-  const sides = 6;
-  return Math.floor(Math.random() * sides) + 1;
+
 }
 
 // Called every time the bot connects to Twitch chat
