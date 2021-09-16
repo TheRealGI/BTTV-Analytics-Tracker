@@ -2,6 +2,10 @@ const tmi = require('tmi.js');
 const fs = require('fs');
 const commandHandler = require('./commandHandler/commandHandler');
 const contextHelper = require('./util/contextHelper');
+const messageParser = require('./messageParser/messageParser');
+const userService = require('./service/user-service');
+const emoteService = require('./service/emote-service');
+require('dotenv').config()
 
 // Commandlist
 const commandCollection = {};
@@ -12,6 +16,7 @@ for(const file of commandFiles) {
   commandCollection[command.name] = command;
 }
 
+ populateCaches();
 
 // Define configuration options
 const opts = {
@@ -36,7 +41,8 @@ client.connect();
 
 // Called every time a message comes in
 function onMessageHandler (channel, context, msg, self) {
-  if (self) { return; } // Ignore messages from the bot
+  // Ignore messages from the bot
+  if (self) { return; } 
   // check if the message is a command
   if(msg.startsWith(process.env['PREFIX'])) {
     const args = msg.slice(process.env.PREFIX.length).trim().split(/ +/);
@@ -47,11 +53,15 @@ function onMessageHandler (channel, context, msg, self) {
   }
   
   //usage of bttv emotes will be only tracked if the flag is set for the user
-  //TODO
-
+  messageParser.parseBttvEmoteFromMessage(contextHelper.getUserId(context), msg);
 }
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler (addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
+}
+
+async function populateCaches () {
+  await userService.getAllTrackedUsers();
+  await emoteService.getAllEmotes();
 }

@@ -25,4 +25,8 @@ function untrackUser(userId) {
     });
 }
 
-module.exports = {getUserByUserId, addUser, trackUser, untrackUser};
+function getAllTrackedUsers() {
+    return db.dbConnection("User").select("*").where("IsTracked", 1);
+}
+
+module.exports = {getUserByUserId, addUser, trackUser, untrackUser, getAllTrackedUsers};

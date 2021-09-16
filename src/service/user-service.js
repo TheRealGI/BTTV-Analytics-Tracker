@@ -1,4 +1,5 @@
 const userRepository = require('../db/repository/user-repository');
+const userCache = require('../db/cache/user.cache');
 
 const addOrTrackUserIfNotExists = async function(userDto) {
     var user = await userRepository.getUserByUserId(userDto.userId);
@@ -25,4 +26,16 @@ const untrackUserByUserId = async function (userId) {
     return await userRepository.untrackUser(userId);
 }
 
-module.exports = {addOrTrackUserIfNotExists, untrackUserByUserId};
+const isUserBeingTracked = async function (userId) {
+    return userCache.hasKey(userId);
+}
+
+const getAllTrackedUsers = async function () {
+    var allUsers = []
+     await userRepository.getAllTrackedUsers().then(result => {
+         result.map( res => allUsers.push({key: res.UserId,val: res.DisplayName}));
+     });
+    userCache.setMulti(allUsers);
+}
+
+module.exports = {addOrTrackUserIfNotExists, untrackUserByUserId, isUserBeingTracked, getAllTrackedUsers};

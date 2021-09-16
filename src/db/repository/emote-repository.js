@@ -23,4 +23,8 @@ function removeEmote(value) {
     });
 }
 
-module.exports = {getEmoteByValue, addEmote, removeEmote};
+function getAllEmotes() {
+  return db.dbConnection("Emotes").select("*");
+}
+
+module.exports = {getEmoteByValue, addEmote, removeEmote, getAllEmotes};
