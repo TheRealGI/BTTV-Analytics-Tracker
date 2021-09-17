@@ -20,8 +20,8 @@ function addData(userId, emoteId, count) {
       return db.dbConnection("Data").select("*").where("UserId", userId).andWhere("EmoteId",emoteId)
   }
 
-  function getTopThreeEmotesByUserIdAnEmoteId(userId) {
-      return db.dbConnection("Data").select("EmoteId").where("UserId", userId).orderBy("Count", "desc").limit(3);
+  function getTopThreeEmotesByUserId(userId) {
+      return db.dbConnection("Data").select("EmoteId", "Count").where("UserId", userId).orderBy("Count", "desc").limit(3);
   }
 
-  module.exports = {addData, updateData, getDataByUserIdAndEmoteId}, getTopThreeEmotesByUserIdAnEmoteId
+  module.exports = {addData, updateData, getDataByUserIdAndEmoteId, getTopThreeEmotesByUserId}

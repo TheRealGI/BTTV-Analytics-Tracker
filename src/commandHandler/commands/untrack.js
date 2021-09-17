@@ -14,7 +14,7 @@ module.exports = {
 
     let userName = contextHelper.getDisplayName(context);
     if(user) {
-      client.say(channel, `@${userName} bttv usage will be no longer tracked`)
+      client.say(channel, `@${userName} you will be no longer tracked`);
     }
  }
 }

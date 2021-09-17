@@ -5,11 +5,13 @@ const addOrTrackUserIfNotExists = async function(userDto) {
     var user = await userRepository.getUserByUserId(userDto.userId);
     if(!user || user.length < 1){
         user = await userRepository.addUser(userDto);
+        userCache.set(userDto.userId);
         return user;
     }
 
     if(!user[0].IsTracked){
       user = await userRepository.trackUser(userDto.userId);
+      userCache.set(userDto.userId);
       return user; 
     }
     
@@ -23,7 +25,11 @@ const untrackUserByUserId = async function (userId) {
         return null;
     }
     
-    return await userRepository.untrackUser(userId);
+    let success = await userRepository.untrackUser(userId);
+    if(success) {
+        userCache.delete(userId);
+    }
+    return success;
 }
 
 const isUserBeingTracked = async function (userId) {
