@@ -11,5 +11,9 @@ async function saveData(userId, emoteId, count) {
 async function getTopEmotesByUserId(userId) {
     return await dataRepository.getTopThreeEmotesByUserId(userId);
 }
+
+async function getAllEmotesByRank() {
+    return await dataRepository.getAllEmotesByRank();
+}
   
-  module.exports = {saveData, getTopEmotesByUserId};
+  module.exports = {saveData, getTopEmotesByUserId, getAllEmotesByRank};

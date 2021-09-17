@@ -24,4 +24,8 @@ function addData(userId, emoteId, count) {
       return db.dbConnection("Data").select("EmoteId", "Count").where("UserId", userId).orderBy("Count", "desc").limit(3);
   }
 
-  module.exports = {addData, updateData, getDataByUserIdAndEmoteId, getTopThreeEmotesByUserId}
+  function getAllEmotesByRank() {
+      return db.dbConnection("Data").select("EmoteId").sum({Count: "Count"}).groupBy("EmoteId").orderBy("Count", "desc");
+  }
+
+  module.exports = {addData, updateData, getDataByUserIdAndEmoteId, getTopThreeEmotesByUserId, getAllEmotesByRank}
