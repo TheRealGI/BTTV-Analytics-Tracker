@@ -4,7 +4,7 @@ const dataService = require('../service/data-service');
 
 async function parseBttvEmoteFromMessage (userId, message) {
     var trackedEmotes = [];
-    if(userService.isUserBeingTracked(userId)) {
+    if(await userService.isUserBeingTracked(userId)) {
         var wordsToScan = message.split(' ');
         var currentPos = 0;
 
