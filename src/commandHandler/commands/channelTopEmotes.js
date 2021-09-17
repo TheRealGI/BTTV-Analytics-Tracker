@@ -12,7 +12,7 @@ module.exports = {
         if(topChannelEmotes.length > 0) {
           let responseText = "";
           topChannelEmotes.map(emote => {
-              responseText+=`${emote.EmoteId}: ${emote.Count} `;
+              responseText+=`${emote.EmoteId}  ${emote.Count} `;
           });
         
           client.say(channel, `@${displayName}, ${responseText}`);
