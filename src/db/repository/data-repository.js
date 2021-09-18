@@ -28,4 +28,8 @@ function addData(userId, emoteId, count) {
       return db.dbConnection("Data").select("EmoteId").sum({Count: "Count"}).groupBy("EmoteId").orderBy("Count", "desc");
   }
 
-  module.exports = {addData, updateData, getDataByUserIdAndEmoteId, getTopThreeEmotesByUserId, getAllEmotesByRank}
+  function deleteAllTrackedData() {
+      return db.dbConnection("Data").truncate();
+  }
+
+  module.exports = {addData, updateData, getDataByUserIdAndEmoteId, getTopThreeEmotesByUserId, getAllEmotesByRank, deleteAllTrackedData}

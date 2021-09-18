@@ -15,5 +15,9 @@ async function getTopEmotesByUserId(userId) {
 async function getAllEmotesByRank() {
     return await dataRepository.getAllEmotesByRank();
 }
+
+async function deleteAllTrackedData() {
+    return await dataRepository.deleteAllTrackedData();
+}
   
-  module.exports = {saveData, getTopEmotesByUserId, getAllEmotesByRank};
+  module.exports = {saveData, getTopEmotesByUserId, getAllEmotesByRank, deleteAllTrackedData};
