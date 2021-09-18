@@ -37,4 +37,14 @@ const getAllEmotes = async function() {
   emoteCache.setMulti(allEmotes);
 }
 
-module.exports = {addEmoteIfNotExists, removeEmoteIfExists, containsEmote, getAllEmotes};
+const getAllTrackedEmotes = async function() {
+  var allEmotes = [];
+  await emoteRepository.getAllEmotes().then(result => {
+    result.map( emote => {
+      allEmotes.push(emote.Value);
+    });
+  });
+  return allEmotes;
+}
+
+module.exports = {addEmoteIfNotExists, removeEmoteIfExists, containsEmote, getAllEmotes, getAllTrackedEmotes};
