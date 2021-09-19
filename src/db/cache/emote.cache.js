@@ -8,4 +8,5 @@ module.exports = {
     getMulti: function (keys) { return this.cache.mget(keys)},
     hasKey: function (key) {return this.cache.has(key)},
     delete: function (key) {this.cache.del(key)},
+    getAllKeys: function() {return this.cache.keys()}
 }
