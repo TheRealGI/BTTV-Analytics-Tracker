@@ -4,7 +4,7 @@ Give the viewers and yourself the power to check the most used emotes per user o
 To get a understanding what the bot can do refer to the [Command List](#commands)
 
 # How to setup the bot on your own
-TODO
+Comming soon!
 
 # Commands
 
@@ -58,8 +58,13 @@ Just use **!refresh [your Bttv UserId]** command to add it. This is needed to ge
 1. Go to [BTTV](https://betterttv.com/) with your Twitch account you use to stream!
 2. Open up the developer console by pressing the key **F12** or by right clicking the page and choose inspect
 3. Go to the tab **Network** and filter it to **Fetch/XHR**.
-4. Now click on **Dashboard** at the  [BTTV](https://betterttv.com/) page
-5. In the developer console is a new entry. Choose preview and copy the id. (This is your bttv user id)
+
+ ![Step 3](https://github.com/TheRealGI/BTTV-Analytics-Tracker/blob/main/img/dev_console.PNG)
+ 
+5. Now click on **Dashboard** at the  [BTTV](https://betterttv.com/) page
+6. In the developer console is a new entry. Choose preview and copy the id. (This is your bttv user id)
+
+ ![Step 6](https://github.com/TheRealGI/BTTV-Analytics-Tracker/blob/main/img/dev_console_detail.PNG)
 
 ## !reset
 
