@@ -4,10 +4,11 @@ const emoteService = require('../../service/emote-service');
 module.exports = {
   name: 'trackedemotes',
   needsArgs: false,
+  timeout: 120,
   async execute(client, channel, context, message) {
     //only broadcaster/mods can display all tracked emotes
     if(!contextHelper.isModUp(context)) {
-      return;
+      return false;
     }
 
     let allTrackedEmotes = await emoteService.getAllTrackedEmotes();
@@ -18,9 +19,9 @@ module.exports = {
             responseText+= `${emote} `;
         })
         client.say(channel, `@${displayName} --> ${responseText}`);
-        return;
+        return true;
     }
-
     client.say(channel, `@${displayName} --> There are no BTTV emotes tracked at the moment`);
+    return true;
  }
 }

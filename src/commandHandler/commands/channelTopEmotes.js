@@ -3,6 +3,7 @@ const dataService = require('../../service/data-service');
 module.exports = {
   name: 'channeltopemotes',
   needsArgs: false,
+  timeout: 120,
   async execute(client, channel, context, message) {
       // this command is broadcaster only
       if(contextHelper.isBroadcaster(context)) {
@@ -16,9 +17,11 @@ module.exports = {
           });
         
           client.say(channel, `@${displayName}, ${responseText}`);
-          return;
+          return true;
       }
-      client.say(channel, `@${displayName} Is your community dead or why has no one used a BTTV emote?`)
+      client.say(channel, `@${displayName} Is your community dead or why has no one used a BTTV emote?`);
+      return true;
       }
+      return false;
  }
 }

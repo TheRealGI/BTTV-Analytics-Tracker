@@ -3,6 +3,7 @@ const dataService = require('../../service/data-service');
 module.exports = {
   name: 'mytopemotes',
   needsArgs: false,
+  timeout: 120,
   async execute(client, channel, context) {
       let displayName = contextHelper.getDisplayName(context);
       let topEmotes = await dataService.getTopEmotesByUserId(contextHelper.getUserId(context));
@@ -13,10 +14,10 @@ module.exports = {
           });
         
           client.say(channel, `@${displayName}, ${responseText}`);
-          return;
+          return true;
       }
 
-      client.say(channel, `@${displayName} You better start to use some BTTV emotes.`)
-    
+      client.say(channel, `@${displayName} You better start to use some BTTV emotes.`);
+      return true;
  }
 }
