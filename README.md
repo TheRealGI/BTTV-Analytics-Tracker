@@ -10,14 +10,15 @@ Comming soon!
 
 | Command          | Arguments                            | Output                                                                                        | Access            |
 |------------------|:------------------------------------:| ----------------------------------------------------------------------------------------------| ------------------|
-|[!track](#track)            |                                      | The user will be tracked of there bttv emotes usage                                           | Viewer and higher |
-|[!untrack](#untrack)          |                                      | The user will be no longer tracked of there bttv emotes usage                                 | Viewer and higher |
-|[!mytopemotes](#mytopemotes)      |                                      | Delivers the top 3 used emote of the user                                                     | Viewer or higher  |
-|[!trackedemotes](#trackedemotes)    |                                      | Delivers all tracked emotes of the channel                                                    | Mods or higher    |
-|[!channeltopemotes](#channeltopemotes) |                                      | Delivers all used emotes in the channel ordered by the most used to the least one.            | Broadcaster only  |
-|[!refresh](#refresh)          |                                      | Sync the tracked emotes with BTTV. Adds missing and removes deleted bttv emotes               | Broadcaster only  |
+|[!track](#track)     |                                   | The user will be tracked of there bttv emotes usage                                           | Viewer and higher |
+|[!untrack](#untrack) |                                   | The user will be no longer tracked of there bttv emotes usage                                 | Viewer and higher |
+|[!mytopemotes](#mytopemotes)      |                      | Delivers the top 3 used emote of the user                                                     | Viewer and higher |
+|[!help](#help) |                                         | Delivers a link to this documentation in twitch chat                                          | Viewer and higher |
+|[!trackedemotes](#trackedemotes)    |                    | Delivers all tracked emotes of the channel                                                    | Mods or higher    |
+|[!channeltopemotes](#channeltopemotes) |                 | Delivers all used emotes in the channel ordered by the most used to the least one.            | Broadcaster only  |
+|[!refresh](#refresh)          |                          | Sync the tracked emotes with BTTV. Adds missing and removes deleted bttv emotes               | Broadcaster only  |
 |[!refresh](#refresh)          | BTTVUserId e.g !refresh 1234         | Set's the userId for importing the emotes from BTTV. Used first before the regular command    | Broadcaster only  |
-|[!reset](#reset)            |                                      | Deletes all tracked data from all tracked user of the channel                                 | Broadcaster only  |
+|[!reset](#reset)            |                            | Deletes all tracked data from all tracked user of the channel                                 | Broadcaster only  |  
 
 **Other**
 
@@ -81,6 +82,10 @@ To add a emote to the tracking list use !addEmote [theEmoteYouWantToAdd] for e.g
 Use **!removeemote** command only if you don't want to sync with bttv by using the [!refresh command](#refresh) or you want to remove it manually.
 
 To remove a emote from the tracking list use **!removeEmote [theEmoteYouWantToRemove]** for e.g !removeEmote KEKW. When successfull the bot will reply.
+
+## !help
+
+Bot responses to Twitch chat with a link to this documentation.
 
 # The MIT License (MIT)
 
