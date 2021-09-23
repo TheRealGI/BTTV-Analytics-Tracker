@@ -1,8 +1,9 @@
 const db = require('../knex');
 
-function getEmoteByValue(value) {
+function getEmoteByValueAndType(value, type) {
   return db.dbConnection("Emotes").select("*")
-  .where("Value", value);
+  .where("Value", value)
+  .andWhere("Type", type);
 }
 
 function addEmote(value) {
@@ -27,4 +28,4 @@ function getAllEmotes() {
   return db.dbConnection("Emotes").select("*");
 }
 
-module.exports = {getEmoteByValue, addEmote, removeEmote, getAllEmotes};
+module.exports = {getEmoteByValueAndType, addEmote, removeEmote, getAllEmotes};

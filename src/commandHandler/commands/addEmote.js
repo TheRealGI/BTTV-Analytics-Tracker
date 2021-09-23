@@ -1,5 +1,7 @@
 const contextHelper = require('../../util/contextHelper');
 const emoteService = require('../../service/emote-service');
+const EmoteType = require('../../db/model/emoteType')
+const emoteType = new EmoteType();
 
 module.exports = {
   name: 'addemote',
@@ -12,7 +14,7 @@ module.exports = {
     }
 
     if(args && args.length > 0) {
-      var emote = await emoteService.addEmoteIfNotExists(args[0])
+      var emote = await emoteService.addEmoteIfNotExists(args[0], emoteType.CUSTOM);
       if(emote) {
         client.say(channel, `The emote: ${args[0]} was successfully added`);
         return true;

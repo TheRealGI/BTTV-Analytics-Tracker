@@ -1,20 +1,20 @@
 const emoteRepository = require('../db/repository/emote-repository');
 const emoteCache = require('../db/cache/emote.cache');
 
-const addEmoteIfNotExists = async function (value) {
-  var emote = await emoteRepository.getEmoteByValue(value);
+const addEmoteIfNotExists = async function (value, type) {
+  var emote = await emoteRepository.getEmoteByValueAndType(value, type);
   if(emote && emote.length > 0) {
     return;
   }
-  var success = emoteRepository.addEmote({Value: value});
+  var success = emoteRepository.addEmote({Value: value, Type: type});
   if (success) {
-    emoteCache.set(value, value);
+    emoteCache.set(value, {value: value, type: type});
   }
   return success;
 }
 
-const removeEmoteIfExists = async function(value) {
-  var emote = await emoteRepository.getEmoteByValue(value);
+const removeEmoteIfExists = async function(value, type) {
+  var emote = await emoteRepository.getEmoteByValueAndType(value, type);
   if(emote && emote.length > 0) {
     var success = emoteRepository.removeEmote(value);
     if(success) {
@@ -32,7 +32,7 @@ const containsEmote = function(word) {
 const getAllEmotes = async function() {
   let allEmotes = [];
   await emoteRepository.getAllEmotes().then( result => {
-    result.map(res => allEmotes.push({key: res.Value, val: res.Id}))
+    result.map(res => allEmotes.push({key: res.Value, val: {value: res.Value, type: res.Type}}))
   });
   emoteCache.setMulti(allEmotes);
 }
