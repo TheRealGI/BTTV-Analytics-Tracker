@@ -18,7 +18,7 @@ Comming soon!
 |[!addemote](#addemote) | emoteName e.g !addEmote KEKW         | Add a custom emote which are not in [FFZ](https://www.frankerfacez.com/emoticons/) or [BTTV](https://betterttv.com/)                                          | Mods or higher    |
 |[!removeemote](#removeemote)      | emoteName e.g !removeEmote KEKW      | Removes a custom emote                                                        | Mods or higher    |
 |[!channeltopemotes](#channeltopemotes) |                 | Delivers all used emotes in the channel ordered by the most used to the least one.            | Broadcaster only  |
-|[!setbttvuserid](#setbttvuserid) |  e.g !setbttvuserid 1234   | Set's the mandatory userId for importing emotes from [BTTV]((https://betterttv.com/))                                 | Broadcaster only  |
+|[!setbttvuserid](#setbttvuserid) |  e.g !setbttvuserid 1234   | Set's the mandatory userId for importing emotes from [BTTV](https://betterttv.com/)                                 | Broadcaster only  |
 |[!setffzuserid](#setffzuserid) |    e.g !setffzuserid zezima  | Set's the mandadory userId for importing emotes from [FFZ](https://www.frankerfacez.com/emoticons/)           | Broadcaster only  |
 |[!refresh](#refresh)          |                          | Sync the tracked emotes with [BTTV](https://betterttv.com/) and [FFZ](https://www.frankerfacez.com/emoticons/). Adds missing and removes deleted emotes            | Broadcaster only  |
 |[!reset](#reset)            |                            | Deletes all tracked data from all tracked user of the channel                                 | Broadcaster only  |  
@@ -29,19 +29,19 @@ Using **!track** command will add you to the tracking list. This means all messa
 
 ## !untrack
 
-Using **!untrack** command will remove you from the tracking list. The bot will ignore all you message you made and therefore won't keep track on your usage of the bttv emotes.
+Using **!untrack** command will remove you from the tracking list. The bot will ignore all you message you made and therefore won't keep track on your usage of the Twitch emotes.
 
 ## !mytopemotes
 
-Using **!mytopemotes** command will displays your top 3 used bttv emote with the corresponding count in chat.
+Using **!mytopemotes** command will displays your top 3 used Twitch emotes with the corresponding count in chat.
 
 ## !trackedemotes
 
-Using **!trackedemotes** will displays all bttv emotes which are tracked on the channel. Be aware that multiple messages will be send to the chat depending on how many there are.
+Using **!trackedemotes** will displays all Twitch emotes which are tracked on the channel. Be aware that multiple messages will be send to the chat depending on how many there are.
 
 ## !channeltopemotes
 
-Using the **!channeltopemotes** will display all used emotes  of the channel from the most used down to the least used one. Keep in mind that the count is sum up by all viewers which has the tracking activated once.
+Using the **!channeltopemotes** will display all used Twitch emotes of the channel from the most used down to the least used one. Keep in mind that the count is sum up by all viewers which has the tracking activated once.
 
 ## !setbttvuserid 
 Does set the value for importing emotes from your BTTV Channel. The provided value is the technical userId. Follow the instruction below to retrieve this id.
@@ -55,7 +55,7 @@ Does set the value for importing emotes from your BTTV Channel. The provided val
  ![Step 3](https://github.com/TheRealGI/BTTV-Analytics-Tracker/blob/main/img/dev_console.PNG)
  
 5. Now click on **Dashboard** at the  [BTTV](https://betterttv.com/) page
-6. In the developer console is a new entry. Choose preview and copy the id. (This is your bttv user id)
+6. In the developer console is a new entry. Choose preview and copy the id. (This is your bttv userId)
 
  ![Step 6](https://github.com/TheRealGI/BTTV-Analytics-Tracker/blob/main/img/dev_console_detail.PNG)
 
@@ -77,13 +77,14 @@ Using the **!reset** command will delete all tracked data from all viewers of yo
 
 ## !addemote
 
-Use **!addemote** command only if you don't want to sync with bttv by using the [!refresh command](#refresh) or you want to add it manually.
+Use **!addemote** command only if you want to add a custom Twitch emote which are not in BTTV or FFZ.
 
 To add a emote to the tracking list use !addEmote [theEmoteYouWantToAdd] for e.g !addEmote KEKW. When successfull the bot will reply.
 
 ## !removeemote
 
-Use **!removeemote** command only if you don't want to sync with bttv by using the [!refresh command](#refresh) or you want to remove it manually.
+Use **!removeemote** to remove custom added Twitch emotes. This command won't work on BTTV or FFZ emotes. If you need to update BTTV or FFZ emotes then use
+[!refresh](#refresh) command.
 
 To remove a emote from the tracking list use **!removeEmote [theEmoteYouWantToRemove]** for e.g !removeEmote KEKW. When successfull the bot will reply.
 
