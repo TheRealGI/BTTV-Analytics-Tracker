@@ -11,12 +11,12 @@ module.exports = {
     let user = await userService.addOrTrackUserIfNotExists({userId: userId, displayName: displayName, isTracked: 1});
     
     if(user == null) {
-      client.say(channel, `@${displayName} tracking BTTV usage already`);
+      client.say(channel, `@${displayName} --> Tracking Twitch emotes usage already`);
       return true;
     }
 
     if(user) {
-      client.say(channel, `@${displayName} tracking BTTV usage now`);
+      client.say(channel, `@${displayName} tracking Twitch emotes usage now`);
       return true;
   }
   return false;

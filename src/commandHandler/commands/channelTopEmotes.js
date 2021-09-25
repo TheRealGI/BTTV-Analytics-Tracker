@@ -19,7 +19,7 @@ module.exports = {
           client.say(channel, `@${displayName}, ${responseText}`);
           return true;
       }
-      client.say(channel, `@${displayName} Is your community dead or why has no one used a BTTV emote?`);
+      client.say(channel, `@${displayName} --> Is your community dead or why has no one used a Twitch emote?`);
       return true;
       }
       return false;

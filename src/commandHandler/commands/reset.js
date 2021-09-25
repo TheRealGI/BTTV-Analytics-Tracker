@@ -14,10 +14,10 @@ module.exports = {
     let success = await dataService.deleteAllTrackedData();
     let displayName = contextHelper.getDisplayName(context);
     if(success) {
-        client.say(channel, `@${displayName}, All tracked data from this channel was successfully deleted.`);
+        client.say(channel, `@${displayName} --> All tracked data from this channel was successfully deleted.`);
         return true;
     }
-    client.say(channel, `@${displayName} could not delete all data. Try again later`);
+    client.say(channel, `@${displayName} --> Could not delete all data. Try again later`);
     return true;
  }
 }

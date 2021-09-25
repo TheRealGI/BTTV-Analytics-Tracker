@@ -21,7 +21,7 @@ module.exports = {
         client.say(channel, `@${displayName} --> ${responseText}`);
         return true;
     }
-    client.say(channel, `@${displayName} --> There are no BTTV emotes tracked at the moment`);
+    client.say(channel, `@${displayName} --> There are no Twitch emotes tracked at the moment`);
     return true;
  }
 }

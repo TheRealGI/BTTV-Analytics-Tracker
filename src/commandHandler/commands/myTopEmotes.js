@@ -13,11 +13,11 @@ module.exports = {
               responseText+=`${emote.EmoteId}  ${emote.Count} `;
           });
         
-          client.say(channel, `@${displayName}, ${responseText}`);
+          client.say(channel, `@${displayName} --> ${responseText}`);
           return true;
       }
 
-      client.say(channel, `@${displayName} You better start to use some BTTV emotes.`);
+      client.say(channel, `@${displayName} --> You better start to use some Twitch emotes.`);
       return true;
  }
 }

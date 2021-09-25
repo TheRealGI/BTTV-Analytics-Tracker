@@ -12,7 +12,7 @@ async function importEmotes(channel, displayName) {
 
     if(bttvUserId.length == 0 && ffzUserId.length == 0) {
         return messagePrefix + 
-        "No id's set for import. To import from BTTV use !setBttvUserId [bttvUserId].To import from FFZ use !setFFZUserId [ffzUserid]. Setting both id's will import from both sources.";
+        "No id's set for the import. To import from BTTV use !setBttvUserId [bttvUserId].To import from FFZ use !setFFZUserId [ffzUserid]. Setting both id's will import from both sources.";
     }
     let bttvMessage = "";
     if(bttvUserId.length > 0) {
@@ -71,7 +71,7 @@ async function importFfz(id) {
             successRemoved = removeEmotes(removedEmotes, emoteType.FFZ);
             successAdded = addEmotes(addedEmotes, emoteType.FFZ);
        
-       return `FFZ: Added ${successAdded.length} and removed ${successRemoved.length} emotes.`;
+       return ` FFZ: Added ${successAdded.length} and removed ${successRemoved.length} emotes.`;
 
     });
 }

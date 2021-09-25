@@ -16,7 +16,7 @@ module.exports = {
              client.say(channel, `@${displayName} --> UserId for BTTV Import was set to: ${args[0]}`);
              return true;
            }
-           client.say(channel, `@${displayName} there was a unknown errro... please try again later`);
+           client.say(channel, `@${displayName} --> There was a unknown errro... please try again later`);
           return true;
         }
         return false;
