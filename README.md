@@ -13,7 +13,7 @@ If you setup the bot on your own or I added your channel to my bot you need to d
 2. Run [!refresh](#refresh). There should be a message in chat stating how many emotes got imported.
 3. Double check the tracking list of the emotes by typing [!trackedemotes](#trackedemotes) in chat which displays all emotes imported.
 4. You can run [!track](#track) if you want that your emotes usage should be tracked.
-5. Inform your viewer that they also can use some commands explained [here](#howtogetstartedasaviewer). 
+5. Inform your viewer that they also can use some commands explained [here](#how-to-get-started-as-a-viewer). 
 
 # How to get started as a viewer
 
