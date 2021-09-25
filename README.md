@@ -6,6 +6,21 @@ To get a understanding what the bot can do refer to the [Command List](#commands
 # How to setup the bot on your own
 Comming soon!
 
+# How to get started as a streamer
+
+If you setup the bot on your own or I added your channel to my bot you need to do the following steps.
+1. Before you can import your emotes to the tracking list you need to run both commands or one of them at least : [!setbttvuserid](#setbttvuserid) or [!setffzuserid](#setffzuserid).
+2. Run [!refresh](#refresh). There should be a message in chat stating how many emotes got imported.
+3. Double check the tracking list of the emotes by typing [!trackedemotes](#trackedemotes) in chat which displays all emotes imported.
+4. You can run [!track](#track) if you want that your emotes usage should be tracked.
+5. Inform your viewer that they also can use some commands explained [here](#howtogetstartedasaviewer). 
+
+# How to get started as a viewer
+
+If the streamer has set up the bot correctly you can also start to get some information about your top emotes used in this particular channel.
+1. You need to use [!track](#track) command. At this point the bot won't ignore your messages anymore and will start tracking your usage of the Twitch emotes. If you want to cancel this tracking just use [!untrack](#untrack). The bot will then ignore all your message in chat. You can however reactivate the tracking any time you want by running [!track](#track) again.
+2. To get the top three used Twitch emotes on the channel use [!mytopemotes](#mytopemotes) in chat.
+
 # Commands
 
 | Command          | Arguments                            | Output                                                                                        | Access            |
@@ -19,7 +34,7 @@ Comming soon!
 |[!removeemote](#removeemote)      | emoteName e.g !removeEmote KEKW      | Removes a custom emote                                                        | Mods or higher    |
 |[!channeltopemotes](#channeltopemotes) |                 | Delivers all used emotes in the channel ordered by the most used to the least one.            | Broadcaster only  |
 |[!setbttvuserid](#setbttvuserid) |  e.g !setbttvuserid 1234   | Set's the mandatory userId for importing emotes from [BTTV](https://betterttv.com/)                                 | Broadcaster only  |
-|[!setffzuserid](#setffzuserid) |    e.g !setffzuserid zezima  | Set's the mandadory userId for importing emotes from [FFZ](https://www.frankerfacez.com/emoticons/)           | Broadcaster only  |
+|[!setffzuserid](#setffzuserid) |    e.g !setffzuserid zezima  | Set's the mandatory userId for importing emotes from [FFZ](https://www.frankerfacez.com/emoticons/)           | Broadcaster only  |
 |[!refresh](#refresh)          |                          | Sync the tracked emotes with [BTTV](https://betterttv.com/) and [FFZ](https://www.frankerfacez.com/emoticons/). Adds missing and removes deleted emotes            | Broadcaster only  |
 |[!reset](#reset)            |                            | Deletes all tracked data from all tracked user of the channel                                 | Broadcaster only  |  
 
