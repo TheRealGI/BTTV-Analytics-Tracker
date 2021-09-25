@@ -1,5 +1,5 @@
-# BTTV-Analytics-Tracker
-A Twitch Bot which can track the usage of BTTV emotes in your chat!
+# Twitch-Emote-Analytics-Tracker
+A Twitch Bot which can track the usage of Twitch emotes ([FFZ](https://www.frankerfacez.com/emoticons/), [BTTV](https://betterttv.com/) ) in your chat!
 Give the viewers and yourself the power to check the most used emotes per user or over the whole channel.
 To get a understanding what the bot can do refer to the [Command List](#commands)
 
@@ -10,24 +10,18 @@ Comming soon!
 
 | Command          | Arguments                            | Output                                                                                        | Access            |
 |------------------|:------------------------------------:| ----------------------------------------------------------------------------------------------| ------------------|
-|[!track](#track)     |                                   | The user will be tracked of there bttv emotes usage                                           | Viewer and higher |
-|[!untrack](#untrack) |                                   | The user will be no longer tracked of there bttv emotes usage                                 | Viewer and higher |
+|[!track](#track)     |                                   | The user will be tracked of there Twitch emotes usage                                           | Viewer and higher |
+|[!untrack](#untrack) |                                   | The user will be no longer tracked of there Twitch emotes usage                                 | Viewer and higher |
 |[!mytopemotes](#mytopemotes)      |                      | Delivers the top 3 used emote of the user                                                     | Viewer and higher |
 |[!help](#help) |                                         | Delivers a link to this documentation in twitch chat                                          | Viewer and higher |
 |[!trackedemotes](#trackedemotes)    |                    | Delivers all tracked emotes of the channel                                                    | Mods or higher    |
+|[!addemote](#addemote) | emoteName e.g !addEmote KEKW         | Add a custom emote which are not in [FFZ](https://www.frankerfacez.com/emoticons/) or [BTTV](https://betterttv.com/)                                          | Mods or higher    |
+|[!removeemote](#removeemote)      | emoteName e.g !removeEmote KEKW      | Removes a custom emote                                                        | Mods or higher    |
 |[!channeltopemotes](#channeltopemotes) |                 | Delivers all used emotes in the channel ordered by the most used to the least one.            | Broadcaster only  |
-|[!refresh](#refresh)          |                          | Sync the tracked emotes with BTTV. Adds missing and removes deleted bttv emotes               | Broadcaster only  |
-|[!refresh](#refresh)          | BTTVUserId e.g !refresh 1234         | Set's the userId for importing the emotes from BTTV. Used first before the regular command    | Broadcaster only  |
+|[!setbttvuserid](#setbttvuserid) |  e.g !setbttvuserid 1234   | Set's the mandatory userId for importing emotes from [BTTV]((https://betterttv.com/))                                 | Broadcaster only  |
+|[!setffzuserid](#setffzuserid) |    e.g !setffzuserid zezima  | Set's the mandadory userId for importing emotes from [FFZ](https://www.frankerfacez.com/emoticons/)           | Broadcaster only  |
+|[!refresh](#refresh)          |                          | Sync the tracked emotes with [BTTV](https://betterttv.com/) and [FFZ](https://www.frankerfacez.com/emoticons/). Adds missing and removes deleted emotes            | Broadcaster only  |
 |[!reset](#reset)            |                            | Deletes all tracked data from all tracked user of the channel                                 | Broadcaster only  |  
-
-**Other**
-
-Use only this commands if the refresh command does not work or you don't want to sync with bttv. Instead use the [refresh command](#refresh )
-
-| Command          | Arguments                            | Output                                                                                        | Access            |
-|------------------|:------------------------------------:| ----------------------------------------------------------------------------------------------| ------------------|
-|[!addemote](#addemote)         | emoteName e.g !addEmote KEKW         | Adds a bttv emote for the tracking                                                            | Mods or higher    |
-|[!removeemote](#removeemote)      | emoteName e.g !removeEmote KEKW      | Removes a bttv emote from the tracking                                                        | Mods or higher    |
 
 ## !track
 
@@ -49,10 +43,8 @@ Using **!trackedemotes** will displays all bttv emotes which are tracked on the 
 
 Using the **!channeltopemotes** will display all used emotes  of the channel from the most used down to the least used one. Keep in mind that the count is sum up by all viewers which has the tracking activated once.
 
-## !refresh 
-
-Using the **!refresh** command will sync the tracked emotes with bttv. But before using this command you need to provide the bttvUserId.
-Just use **!refresh [your Bttv UserId]** command to add it. This is needed to get the bttv emotes from your channel.
+## !setbttvuserid 
+Does set the value for importing emotes from your BTTV Channel. The provided value is the technical userId. Follow the instruction below to retrieve this id.
 
 ### Getting the BTTV UserId 
 
@@ -66,6 +58,18 @@ Just use **!refresh [your Bttv UserId]** command to add it. This is needed to ge
 6. In the developer console is a new entry. Choose preview and copy the id. (This is your bttv user id)
 
  ![Step 6](https://github.com/TheRealGI/BTTV-Analytics-Tracker/blob/main/img/dev_console_detail.PNG)
+
+
+## !setffzuserid 
+Does set the value for importing emotes from your FFZ channel. The provided value is the account name on FFZ.
+
+## !refresh 
+
+Using the **!refresh** command will sync the tracked emotes with BTTV and FFZ.
+However you need to first set some values before using this command successfully.
+There are currently two sources integrated. BTTV and FFZ. If you want to get one or both of this sources and you have a channel there then refer to this commands
+[!setBttvUserId](#setbttvuserid) or [!setffzuserid](#setffzuserid).
+
 
 ## !reset
 
